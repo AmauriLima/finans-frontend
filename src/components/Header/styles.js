@@ -17,7 +17,7 @@ export const Content = styled.div`
   align-items: center;
   padding: 34px 24px;
 
-  img {
+  a, img {
     height: 32px;
   }
 `;
@@ -31,16 +31,20 @@ export const Navbar = styled.nav`
 
     transition: all 200ms ease-in;
 
-    &:first-child {
-      margin-left: 32px;
-    }
   }
 
   ul {
     list-style: none;
     display: flex;
+
+    li:first-child {
+        margin-right: 32px;
+      }
   }
 
+  li {
+
+  }
 
   a:hover {
     opacity: .7;

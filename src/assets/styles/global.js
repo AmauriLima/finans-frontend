@@ -17,4 +17,12 @@ export default createGlobalStyle`
   button {
     cursor: pointer;
   }
+
+  .gradient {
+    background-image: linear-gradient(45deg, #40cbf6, #82c041);
+    background-clip: text;
+    -webkit-background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+  }
 `;
