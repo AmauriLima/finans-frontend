@@ -5,7 +5,7 @@ export const Container = styled.div`
 
   background-color: ${({ theme }) => theme.colors.gray[900]};
   color: #fff;
-  `;
+`;
 
 export const Content = styled.div`
   width: 100%;
@@ -16,6 +16,10 @@ export const Content = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 34px 24px;
+
+  img {
+    height: 32px;
+  }
 `;
 
 export const Navbar = styled.nav`
@@ -24,11 +28,21 @@ export const Navbar = styled.nav`
     font-weight: bold;
     letter-spacing: 1px;
     text-decoration: none;
-    padding: 0 16px;
+
+    transition: all 200ms ease-in;
+
+    &:first-child {
+      margin-left: 32px;
+    }
   }
 
   ul {
     list-style: none;
     display: flex;
+  }
+
+
+  a:hover {
+    opacity: .7;
   }
 `;
