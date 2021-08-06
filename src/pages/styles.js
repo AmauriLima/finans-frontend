@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  max-width: 520px;
-  padding: 24px;
+  max-width: 540px;
+  min-width: 360px;
+  padding: 32px;
   border-radius: 8px;
   color: #fff;
   background-color: ${({ theme }) => theme.colors.gray[900]};
@@ -16,7 +17,11 @@ export const Container = styled.div`
 
     .gradient, &.gradient {
       font-weight: 700;
-      /* line-height: normal !important; */
+      line-height: normal !important;
+    }
+
+    &.titleForm {
+      text-align: center;
     }
   }
 

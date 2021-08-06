@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle, css } from 'styled-components';
 
 export default createGlobalStyle`
   * {
@@ -19,7 +19,13 @@ export default createGlobalStyle`
   }
 
   .gradient {
-    background-image: linear-gradient(45deg, #40cbf6, #82c041);
+    background-image: linear-gradient(
+      45deg,
+      ${({ theme }) => css`
+        ${theme.colors.primary.main},
+        ${theme.colors.secondary.main}
+      `}
+    );
     background-clip: text;
     -webkit-background-clip: text;
 
