@@ -3,7 +3,7 @@ import { Container } from '../styles';
 export default function SignUp() {
   return (
     <Container>
-      ola
+      <h1 className="gradient">Registre-se</h1>
     </Container>
   );
 }
