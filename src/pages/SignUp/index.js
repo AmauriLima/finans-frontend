@@ -1,11 +1,9 @@
-import { Container, Content } from '../styles';
+import { Container } from '../styles';
 
 export default function SignUp() {
   return (
     <Container>
-      <Content>
-        ola
-      </Content>
+      ola
     </Container>
   );
 }

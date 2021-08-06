@@ -31,6 +31,13 @@ export const Navbar = styled.nav`
 
     transition: all 200ms ease-in;
 
+    &:hover {
+      opacity: .7;
+    }
+
+    &:active {
+      opacity: 1;
+    }
   }
 
   ul {
@@ -40,13 +47,5 @@ export const Navbar = styled.nav`
     li:first-child {
         margin-right: 32px;
       }
-  }
-
-  li {
-
-  }
-
-  a:hover {
-    opacity: .7;
   }
 `;

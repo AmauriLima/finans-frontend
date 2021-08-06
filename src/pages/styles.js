@@ -1,13 +1,6 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: calc(100vh - 100px);
-`;
-
-export const Content = styled.div`
   max-width: 520px;
   padding: 24px;
   border-radius: 8px;
