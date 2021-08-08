@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Button = styled.button`
   height: 42px;
@@ -18,8 +18,15 @@ export const Button = styled.button`
 
   transition: all 200ms ease-in;
 
-  &:hover {
-    transform: translateY(-2px);
-    background: ${({ theme }) => theme.colors.primary.dark};
+  ${({ disabled }) => !disabled && css`
+    &:hover {
+      transform: translateY(-2px);
+      background: ${({ theme }) => theme.colors.primary.dark};
+    }
+  `}
+
+  &[disabled] {
+    background: #363636;
+    cursor: not-allowed;
   }
 `;
