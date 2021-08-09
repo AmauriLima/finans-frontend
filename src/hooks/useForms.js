@@ -35,18 +35,21 @@ export default function useForms() {
     }
   }
 
-  function handlePasswordChange(event) {
+  function handlePasswordChange(event, { confirm }) {
     setPassword(event.target.value);
 
     if (!event.target.value) {
       setError({ field: 'password', message: 'Senha obrigatória' });
-      removeError('confirmPassword');
     } else {
       removeError('password');
     }
 
-    if (event.target.value && confirmPassword === password) {
-      setError({ field: 'confirmPassword', message: 'Senhas não conferem' });
+    if (confirm) {
+      if (event.target.value && confirmPassword !== event.target.value) {
+        setError({ field: 'confirmPassword', message: 'Senhas não conferem' });
+      } else {
+        removeError('confirmPassword');
+      }
     }
   }
 

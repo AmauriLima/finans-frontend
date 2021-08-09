@@ -64,7 +64,7 @@ export default function RegisterForm({ buttonLabel }) {
             type="password"
             placeholder="senha *"
             value={password}
-            onChange={handlePasswordChange}
+            onChange={(event) => handlePasswordChange(event, { confirm: true })}
           />
         </FormGroup>
 

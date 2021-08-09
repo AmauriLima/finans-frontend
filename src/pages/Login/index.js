@@ -1,11 +1,10 @@
+import LoginForm from '../../components/LoginForm';
 import { Container } from '../styles';
 
 export default function Login() {
   return (
     <Container>
-      <h1 className="gradient titleForm">
-        Faça login
-      </h1>
+      <LoginForm buttonLabel="Login" />
     </Container>
   );
 }
