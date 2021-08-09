@@ -32,62 +32,58 @@ export default function RegisterForm({ buttonLabel }) {
   }
 
   return (
-    <>
-      <h1 className="gradient titleForm">Registre-se</h1>
+    <Form onSubmit={handleSubmit} noValidate>
+      <FormGroup error={getErrorMessageByFieldName('name')}>
+        <Input
+          error={getErrorMessageByFieldName('name')}
+          placeholder="Nome *"
+          value={name}
+          onChange={handleNameChange}
+        />
+      </FormGroup>
 
-      <Form onSubmit={handleSubmit} noValidate>
-        <FormGroup error={getErrorMessageByFieldName('name')}>
-          <Input
-            error={getErrorMessageByFieldName('name')}
-            placeholder="Nome *"
-            value={name}
-            onChange={handleNameChange}
-          />
-        </FormGroup>
+      <FormGroup error={getErrorMessageByFieldName('email')}>
+        <Input
+          type="email"
+          error={getErrorMessageByFieldName('email')}
+          placeholder="E-mail *"
+          value={email}
+          onChange={handleEmailChange}
+        />
+      </FormGroup>
 
-        <FormGroup error={getErrorMessageByFieldName('email')}>
-          <Input
-            type="email"
-            error={getErrorMessageByFieldName('email')}
-            placeholder="E-mail *"
-            value={email}
-            onChange={handleEmailChange}
-          />
-        </FormGroup>
-
-        <FormGroup
-          id="pass"
+      <FormGroup
+        id="pass"
+        error={getErrorMessageByFieldName('password')}
+      >
+        <Input
           error={getErrorMessageByFieldName('password')}
-        >
-          <Input
-            error={getErrorMessageByFieldName('password')}
-            type="password"
-            placeholder="senha *"
-            value={password}
-            onChange={(event) => handlePasswordChange(event, { confirm: true })}
-          />
-        </FormGroup>
+          type="password"
+          placeholder="senha *"
+          value={password}
+          onChange={(event) => handlePasswordChange(event, { confirm: true })}
+        />
+      </FormGroup>
 
-        <FormGroup
-          id="confirm-pass"
+      <FormGroup
+        id="confirm-pass"
+        error={getErrorMessageByFieldName('confirmPassword')}
+      >
+        <Input
           error={getErrorMessageByFieldName('confirmPassword')}
-        >
-          <Input
-            error={getErrorMessageByFieldName('confirmPassword')}
-            type="password"
-            placeholder="confirm sua senha *"
-            value={confirmPassword}
-            onChange={handleConfirmPasswordChange}
-          />
-        </FormGroup>
+          type="password"
+          placeholder="confirm sua senha *"
+          value={confirmPassword}
+          onChange={handleConfirmPasswordChange}
+        />
+      </FormGroup>
 
-        <ButtonContainer>
-          <Button type="submit" disabled={!isFormValid}>
-            {buttonLabel}
-          </Button>
-        </ButtonContainer>
-      </Form>
-    </>
+      <ButtonContainer>
+        <Button type="submit" disabled={!isFormValid}>
+          {buttonLabel}
+        </Button>
+      </ButtonContainer>
+    </Form>
   );
 }
 

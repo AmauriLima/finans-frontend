@@ -29,41 +29,38 @@ export default function LoginForm({ buttonLabel }) {
   }
 
   return (
-    <>
-      <h1 className="gradient titleForm">Login</h1>
-
-      <Form onSubmit={handleSubmit} noValidate>
-        <FormGroup
+    <Form onSubmit={handleSubmit} noValidate>
+      <FormGroup
+        error={getErrorMessageByFieldName('email')}
+      >
+        <Input
           error={getErrorMessageByFieldName('email')}
-        >
-          <Input
-            error={getErrorMessageByFieldName('email')}
-            type="email"
-            placeholder="e-mail *"
-            value={email}
-            onChange={handleEmailChange}
-          />
-        </FormGroup>
+          type="email"
+          placeholder="e-mail *"
+          value={email}
+          onChange={handleEmailChange}
+        />
+      </FormGroup>
 
-        <FormGroup
+      <FormGroup
+        error={getErrorMessageByFieldName('password')}
+      >
+        <Input
           error={getErrorMessageByFieldName('password')}
-        >
-          <Input
-            error={getErrorMessageByFieldName('password')}
-            type="password"
-            placeholder="senha *"
-            value={password}
-            onChange={(event) => handlePasswordChange(event, { confirm: false })}
-          />
-        </FormGroup>
+          type="password"
+          placeholder="senha *"
+          value={password}
+          onChange={(event) => handlePasswordChange(event, { confirm: false })}
+        />
+      </FormGroup>
 
-        <ButtonContainer>
-          <Button disabled={!isFormValid}>
-            {buttonLabel}
-          </Button>
-        </ButtonContainer>
-      </Form>
-    </>
+      <ButtonContainer>
+        <Button disabled={!isFormValid}>
+          {buttonLabel}
+        </Button>
+      </ButtonContainer>
+    </Form>
+
   );
 }
 
