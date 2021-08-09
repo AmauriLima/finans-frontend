@@ -20,6 +20,12 @@ export const Content = styled.div`
   a, img {
     height: 32px;
   }
+
+  @media (max-width: 400px) {
+    a, img {
+      height: 24px;
+    }
+  }
 `;
 
 export const Navbar = styled.nav`
@@ -47,5 +53,13 @@ export const Navbar = styled.nav`
     li:first-child {
         margin-right: 32px;
       }
+  }
+
+  @media (max-width: 400px) {
+    ul {
+      li:first-child {
+        margin-right: 16px;
+      }
+    }
   }
 `;

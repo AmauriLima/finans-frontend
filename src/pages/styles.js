@@ -32,4 +32,22 @@ export const Container = styled.div`
 
     color: ${({ theme }) => theme.colors.gray[100]};
   }
+
+  @media (max-width: 580px) {
+    max-width: 480px;
+    min-width: 0px;
+    width: 90%;
+    margin: 0 auto;
+    h1 {
+      font-size: 30px;
+      line-height: 28px;
+    }
+  }
+
+  @media (max-width: 460px) {
+    h1 {
+      font-size: 24px;
+      line-height: 22px;
+    }
+  }
 `;

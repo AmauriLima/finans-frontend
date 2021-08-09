@@ -7,14 +7,6 @@ export const Container = styled.div`
     margin-top: 16px;
   }
 
-  &#pass {
-    grid-column: 1 / 2;
-  }
-
-  &#confirm-pass {
-    grid-column: 2 / 3;
-  }
-
   small {
     color: ${({ theme }) => theme.colors.danger.main};
     font-size: 12px;

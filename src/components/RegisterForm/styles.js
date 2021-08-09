@@ -6,6 +6,25 @@ export const Form = styled.form`
 
   grid-gap: 8px;
   margin-top: 24px;
+
+  transition: 300ms;
+
+  div#pass {
+    grid-column: 1 / 2;
+  }
+
+  div#confirm-pass {
+    grid-column: 2 / 3;
+  }
+
+  @media (max-width: 500px) {
+    grid-template-columns: 1fr;
+
+    div#pass,
+    div#confirm-pass {
+      grid-column: 1 / 2;
+    }
+  }
 `;
 
 export const ButtonContainer = styled.div`
