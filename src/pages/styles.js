@@ -34,13 +34,15 @@ export const Container = styled.div`
   }
 
   @media (max-width: 580px) {
-    max-width: 480px;
-    min-width: 0px;
     width: 90%;
     margin: 0 auto;
     h1 {
       font-size: 30px;
       line-height: 28px;
+    }
+
+    h1.titleForm {
+      font-size: 36px;
     }
   }
 
@@ -50,4 +52,9 @@ export const Container = styled.div`
       line-height: 22px;
     }
   }
+
+  @media (max-width: 380px) {
+    min-width: 300px;
+  }
+
 `;

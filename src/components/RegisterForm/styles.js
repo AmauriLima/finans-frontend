@@ -18,7 +18,7 @@ export const Form = styled.form`
   }
 
   @media (max-width: 500px) {
-    grid-template-columns: 1fr;
+    grid-template-columns: 2fr;
 
     div#pass,
     div#confirm-pass {
