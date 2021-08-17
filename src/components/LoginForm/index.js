@@ -1,9 +1,13 @@
 import PropTypes from 'prop-types';
+import { useContext } from 'react';
+import { Redirect } from 'react-router-dom';
 
 import useForms from '../../hooks/useForms';
 
-import { Button } from '../Button';
+import { AuthContext } from '../../Context/AuthContext';
+
 import FormGroup from '../FormGroup';
+import { Button } from '../Button';
 import { Input } from '../Input';
 import { ButtonContainer } from '../RegisterForm/styles';
 
@@ -24,9 +28,15 @@ export default function LoginForm({ buttonLabel }) {
     && errors.length === 0
   );
 
+  const { authenticated, handleLogin } = useContext(AuthContext);
+
   function handleSubmit(event) {
     event.preventDefault();
+
+    handleLogin(email, password);
   }
+
+  if (authenticated) return <Redirect to="/wallet" />;
 
   return (
     <Form onSubmit={handleSubmit} noValidate>
@@ -55,7 +65,10 @@ export default function LoginForm({ buttonLabel }) {
       </FormGroup>
 
       <ButtonContainer>
-        <Button disabled={!isFormValid}>
+        <Button
+          type="submit"
+          disabled={!isFormValid}
+        >
           {buttonLabel}
         </Button>
       </ButtonContainer>

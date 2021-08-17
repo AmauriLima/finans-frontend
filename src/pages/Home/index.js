@@ -1,6 +1,13 @@
+import { Redirect } from 'react-router-dom';
 import { Container } from '../styles';
 
+import useAuth from '../../hooks/useAuth';
+
 export default function Home() {
+  const { authenticated } = useAuth();
+
+  if (authenticated) return <Redirect to="/wallet" />;
+
   return (
     <Container>
       <h1>

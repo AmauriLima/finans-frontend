@@ -4,6 +4,9 @@ import { useTransition, animated } from 'react-spring';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
+import Wallet from './pages/Wallet';
+
+import PrivateRoute from './routes/PrivateRoute';
 
 export default function Routes() {
   const location = useLocation();
@@ -16,9 +19,10 @@ export default function Routes() {
   return transitions((props, item) => (
     <animated.div style={props}>
       <Switch location={item}>
-        <Route path="/" exact component={Home} />
-        <Route path="/signup" exact component={SignUp} />
-        <Route path="/login" exact component={Login} />
+        <Route exact path="/" component={Home} />
+        <Route exact path="/signup" component={SignUp} />
+        <Route exact path="/login" component={Login} />
+        <PrivateRoute path="/wallet" component={Wallet} />
       </Switch>
     </animated.div>
   ));

@@ -1,6 +1,9 @@
 import PropTypes from 'prop-types';
+import { useContext } from 'react';
+import { Redirect } from 'react-router-dom';
 
 import useForms from '../../hooks/useForms';
+import { AuthContext } from '../../Context/AuthContext';
 
 import { Form, ButtonContainer } from './styles';
 
@@ -27,9 +30,15 @@ export default function RegisterForm({ buttonLabel }) {
     && errors.length === 0
   );
 
+  const { authenticated, handleSignUp } = useContext(AuthContext);
+
   function handleSubmit(event) {
     event.preventDefault();
+
+    handleSignUp(name, email, password);
   }
+
+  if (authenticated) return <Redirect to="/wallet" />;
 
   return (
     <Form onSubmit={handleSubmit} noValidate>

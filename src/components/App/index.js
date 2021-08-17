@@ -6,19 +6,24 @@ import defaultTheme from '../../assets/styles/themes/default';
 
 import Header from '../Header';
 import Routes from '../../Routes';
+
+import { AuthProvider } from '../../Context/AuthContext';
+
 import { Container } from './styles';
 
 function App() {
   return (
-    <BrowserRouter>
-      <ThemeProvider theme={defaultTheme}>
-        <GlobalStyles />
-        <Header />
-        <Container>
-          <Routes />
-        </Container>
-      </ThemeProvider>
-    </BrowserRouter>
+    <AuthProvider>
+      <BrowserRouter>
+        <ThemeProvider theme={defaultTheme}>
+          <GlobalStyles />
+          <Header />
+          <Container>
+            <Routes />
+          </Container>
+        </ThemeProvider>
+      </BrowserRouter>
+    </AuthProvider>
   );
 }
 
