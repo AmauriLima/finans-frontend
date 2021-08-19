@@ -6,12 +6,12 @@ export default function useAuth() {
   const [authenticated, setAuthenticated] = useState(false);
   const [loading, setLoading] = useState(true);
 
-  useEffect(async () => {
+  useEffect(() => {
     const token = localStorage.getItem('token');
 
     if (token) {
       api.defaults.headers.Authorization = `Bearer ${JSON.parse(token)}`;
-      await api.get('/auth/verifytoken').then(({ status }) => {
+      api.get('/auth/verifytoken').then(({ status }) => {
         setAuthenticated(status === 200);
       });
     }

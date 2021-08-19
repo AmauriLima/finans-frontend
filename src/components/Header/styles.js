@@ -5,6 +5,8 @@ export const Container = styled.header`
 
   background-color: ${({ theme }) => theme.colors.gray[900]};
   color: #fff;
+
+  box-shadow: 0px 5px 10px 0px rgba(38, 38, 38, 0.4);
 `;
 
 export const Content = styled.div`
@@ -13,9 +15,9 @@ export const Content = styled.div`
   margin: 0 auto;
 
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  padding: 34px 24px;
+  padding: 26px 24px;
 
   a, img {
     height: 32px;
@@ -24,42 +26,6 @@ export const Content = styled.div`
   @media (max-width: 400px) {
     a, img {
       height: 24px;
-    }
-  }
-`;
-
-export const Navbar = styled.nav`
-  a {
-    color: #fff;
-    font-weight: bold;
-    letter-spacing: 1px;
-    text-decoration: none;
-
-    transition: all 200ms ease-in;
-
-    &:hover {
-      opacity: .7;
-    }
-
-    &:active {
-      opacity: 1;
-    }
-  }
-
-  ul {
-    list-style: none;
-    display: flex;
-
-    li:first-child {
-        margin-right: 32px;
-      }
-  }
-
-  @media (max-width: 400px) {
-    ul {
-      li:first-child {
-        margin-right: 16px;
-      }
     }
   }
 `;
