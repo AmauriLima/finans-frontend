@@ -8,9 +8,27 @@ export default createGlobalStyle`
     font-family: 'Sora', sans-serif;
   }
 
+  * {
+    &::-webkit-scrollbar {
+      height: 6px;
+      width: 6px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 3px;
+      background-color: #222;
+    }
+
+    &::-webkit-scrollbar-track {
+      border-radius: 3px;
+      background-color: #ccc;
+    }
+  }
+
+
+
   body {
     background-color: ${({ theme }) => theme.colors.background};
-    /* background-color: #161616; */
     font-size: 16px;
     color: ${({ theme }) => theme.colors.gray[900]};
   }

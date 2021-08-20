@@ -22,7 +22,7 @@ export default function Routes() {
         <Route exact path="/" component={Home} />
         <Route exact path="/signup" component={SignUp} />
         <Route exact path="/login" component={Login} />
-        <PrivateRoute path="/wallet" component={Wallet} />
+        <PrivateRoute path="/wallet" exact component={Wallet} />
       </Switch>
     </animated.div>
   ));
