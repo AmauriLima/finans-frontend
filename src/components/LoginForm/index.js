@@ -14,8 +14,10 @@ import { Form } from './style';
 
 export default function LoginForm({ buttonLabel }) {
   const {
-    email,
-    password,
+    fields: {
+      email,
+      password,
+    },
     handleEmailChange,
     handlePasswordChange,
     getErrorMessageByFieldName,
@@ -58,6 +60,7 @@ export default function LoginForm({ buttonLabel }) {
           placeholder="senha *"
           value={password}
           onChange={(event) => handlePasswordChange(event, { confirm: false })}
+          autoComplete="on"
         />
       </FormGroup>
 

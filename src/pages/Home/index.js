@@ -1,14 +1,9 @@
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Button } from '../../components/Button';
 
-import useAuth from '../../hooks/useAuth';
 import { ButtonsArea, Container } from '../styles';
 
 export default function Home() {
-  const { authenticated } = useAuth();
-
-  if (authenticated) return <Redirect to="/wallet" />;
-
   return (
     <>
       <Container>

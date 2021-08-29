@@ -12,10 +12,9 @@ import FormGroup from '../FormGroup';
 
 export default function RegisterForm({ buttonLabel }) {
   const {
-    name,
-    email,
-    password,
-    confirmPassword,
+    fields: {
+      name, email, password, confirmPassword,
+    },
     handleNameChange,
     handleEmailChange,
     handlePasswordChange,
@@ -68,6 +67,7 @@ export default function RegisterForm({ buttonLabel }) {
           placeholder="senha *"
           value={password}
           onChange={(event) => handlePasswordChange(event, { confirm: true })}
+          autoComplete="on"
         />
       </FormGroup>
 
@@ -81,6 +81,7 @@ export default function RegisterForm({ buttonLabel }) {
           placeholder="confirm sua senha *"
           value={confirmPassword}
           onChange={handleConfirmPasswordChange}
+          autoComplete="on"
         />
       </FormGroup>
 

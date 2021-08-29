@@ -3,10 +3,12 @@ import isEmailValid from '../utils/isEmailValid';
 import useErrors from './useErrors';
 
 export default function useForms() {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
+  const [fields, setFields] = useState({
+    name: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
+  });
 
   const {
     errors,
@@ -16,7 +18,7 @@ export default function useForms() {
   } = useErrors();
 
   function handleNameChange(event) {
-    setName(event.target.value);
+    setFields((prevState) => ({ ...prevState, name: event.target.value }));
 
     if (!event.target.value) {
       setError({ field: 'name', message: 'Nome é obrigatório' });
@@ -26,7 +28,7 @@ export default function useForms() {
   }
 
   function handleEmailChange(event) {
-    setEmail(event.target.value);
+    setFields((prevState) => ({ ...prevState, email: event.target.value }));
 
     if (!event.target.value || !isEmailValid(event.target.value)) {
       setError({ field: 'email', message: 'E-mail inválido' });
@@ -36,7 +38,7 @@ export default function useForms() {
   }
 
   function handlePasswordChange(event, { confirm }) {
-    setPassword(event.target.value);
+    setFields((prevState) => ({ ...prevState, password: event.target.value }));
 
     if (!event.target.value) {
       setError({ field: 'password', message: 'Senha obrigatória' });
@@ -45,7 +47,7 @@ export default function useForms() {
     }
 
     if (confirm) {
-      if (event.target.value && confirmPassword !== event.target.value) {
+      if (event.target.value && fields.confirmPassword !== event.target.value) {
         setError({ field: 'confirmPassword', message: 'Senhas não conferem' });
       } else {
         removeError('confirmPassword');
@@ -54,9 +56,9 @@ export default function useForms() {
   }
 
   function handleConfirmPasswordChange(event) {
-    setConfirmPassword(event.target.value);
+    setFields((prevState) => ({ ...prevState, confirmPassword: event.target.value }));
 
-    if (event.target.value !== password) {
+    if (event.target.value !== fields.password) {
       setError({ field: 'confirmPassword', message: 'Senhas não conferem' });
     } else {
       removeError('confirmPassword');
@@ -64,10 +66,7 @@ export default function useForms() {
   }
 
   return {
-    name,
-    email,
-    password,
-    confirmPassword,
+    fields,
     handleNameChange,
     handleEmailChange,
     handlePasswordChange,
